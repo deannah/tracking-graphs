@@ -1,0 +1,22 @@
+.fileUploadHolder {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.fileUploadLabel {
+    border-radius: 25px;
+    background-color: $eggplant;
+    font-size: 200%;
+    color: white;
+    font-family: $button-font;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 white;
+}
+
+.fileUploadInput {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+}

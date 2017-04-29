@@ -1,0 +1,17 @@
+/**
+ * Merges all of the CSS for tracker.
+ */
+
+@import
+    "abstracts/variables";
+
+@import
+    "base/typography",
+    "base/base";
+
+@import
+    "components/file-upload",
+    "components/title";
+
+//@import
+//    "layout/...";

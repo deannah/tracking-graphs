@@ -1,11 +1,14 @@
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require("path");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/client/scripts/client.js'),
+  entry: {
+    "bundle.js": path.resolve(__dirname, "../src/client/scripts/client.js"),
+    "styles.css": path.join(__dirname, "../src/client/styles/main.scss")
+  },
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "../dist"),
+    filename: "[name]"
   },
 
   module: {
@@ -13,11 +16,14 @@ module.exports = {
       {
         test: /src\/.+.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: "babel-loader"
       },
       {
         test: /\.scss$/,
-        loaders: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+        loader: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader", "sass-loader"]
+        })
       }
     ]
   },

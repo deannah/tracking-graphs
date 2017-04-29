@@ -30,10 +30,11 @@ The first decision was to use React. I have a lot of experience with AngularJS b
 
 
 ### References
-General Resources and Tutorials and Articles that Helped
+General Resources and Tutorials and Articles that Helped (Note that I've left out actual documentation.)
 - http://andrewhfarmer.com/how-to-style-react/
 - https://www.jonathan-petitcolas.com/2015/05/15/howto-setup-webpack-on-es6-react-application-with-sass.html
 
 StackOverflow:
 - http://stackoverflow.com/questions/30773756/is-it-okay-to-use-babel-node-in-production?lq=1
 - http://stackoverflow.com/questions/16827858/npm-warn-package-json-no-repository-field
+- http://stackoverflow.com/questions/5813344/how-to-customize-input-type-file
