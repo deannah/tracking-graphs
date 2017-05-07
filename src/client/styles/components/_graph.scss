@@ -1,0 +1,11 @@
+.sheet {
+    border: white 1px solid;
+    width: calc(50% - 2px);
+    float: left;
+
+    h3 {
+        color: white;
+        font-family: $font;
+        text-align: center;
+    }
+}

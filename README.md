@@ -38,3 +38,5 @@ StackOverflow:
 - http://stackoverflow.com/questions/30773756/is-it-okay-to-use-babel-node-in-production?lq=1
 - http://stackoverflow.com/questions/16827858/npm-warn-package-json-no-repository-field
 - http://stackoverflow.com/questions/5813344/how-to-customize-input-type-file
+- http://stackoverflow.com/questions/8560694/html-5-file-upload-event
+- http://stackoverflow.com/questions/14810506/map-function-for-objects-instead-of-arrays

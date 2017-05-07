@@ -1,6 +1,6 @@
 import React from "react";
 import Title from "./Title";
-import FileUpload from "./FileUpload";
+import GraphingSection from "./GraphingSection";
 
 /**
  * @class TrackingRoot
@@ -8,16 +8,16 @@ import FileUpload from "./FileUpload";
  */
 class TrackingRoot extends React.Component {
     /**
-     * Generates the HTML for Tracking
+     * Generates the HTML for enetire Tracking page
      * @returns {JSX}
      */
     render() {
-        var id = "mainFileUpload";
         var name = "tracking";
+        var graphingID = "graphingSection";
         return (
             <div>
                 <Title name={name}></Title>
-                <FileUpload id={id}></FileUpload>
+                <GraphingSection id={graphingID}></GraphingSection>
             </div>
         );
     }

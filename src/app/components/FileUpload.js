@@ -18,9 +18,10 @@ class FileUpload extends React.Component {
      */
     render() {
         var text = "U P L O A D";
+
         return (<div className="fileUploadHolder">
             <label htmlFor={this.props.id} className="fileUploadLabel">{text}</label>
-            <input type="file" id={this.props.id} className="fileUploadInput"></input>
+            <input type="file" id={this.props.id} className="fileUploadInput" onChange={this.props.onChange}></input>
         </div>);
     }
 }

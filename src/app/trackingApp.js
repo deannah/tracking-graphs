@@ -9,11 +9,11 @@ class TrackingApp {
      * @param {Object} options
      */
      constructor(options) {
-         //this.state = options.state;
+         this.state = options.state;
      }
 
      /**
-      * @param {DOM} element - the element that will contain the calendar
+      * @param {DOM} element - the element that will contain the tracking display
       * @returns if element is present, returns undefined. Otherwise returns the
       * calendar rendered to string
       */
@@ -31,7 +31,7 @@ class TrackingApp {
       }
 
       /**
-       * @param {DOM} element - the element that will contain the calendar
+       * @param {DOM} element - the element that will contain the tracking display
        * @returns if element is present, returns undefined. Otherwise throws
        * error
        */
@@ -44,7 +44,7 @@ class TrackingApp {
       }
 
       /**
-       * @returns the calendar rendered to string
+       * @returns the trackig display rendered to string
        */
       renderToString() {
           return this.render();
