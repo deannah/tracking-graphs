@@ -33,6 +33,8 @@ The first decision was to use React. I have a lot of experience with AngularJS b
 General Resources and Tutorials and Articles that Helped (Note that I've left out actual documentation.)
 - http://andrewhfarmer.com/how-to-style-react/
 - https://www.jonathan-petitcolas.com/2015/05/15/howto-setup-webpack-on-es6-react-application-with-sass.html
+- http://eyalarubas.com/getting-started-with-d3js.html
+- https://bl.ocks.org/mbostock/4060954
 
 StackOverflow:
 - http://stackoverflow.com/questions/30773756/is-it-okay-to-use-babel-node-in-production?lq=1

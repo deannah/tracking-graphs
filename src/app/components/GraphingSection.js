@@ -43,7 +43,7 @@ class GraphingSection extends React.Component {
         };
         return (<section id={ID}>
             <FileUpload id={uploadID} onChange={uploadOnChange}></FileUpload>
-            <Graph sheets={this.state.sheets}></Graph>
+            <Graph sheets={this.state.sheets} width={200} height={200}></Graph>
         </section>);
     }
 }
