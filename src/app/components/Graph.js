@@ -20,7 +20,8 @@ class Graph extends React.Component {
      */
     pathDataFromSheet(sheet) {
         var colHeaders = {};
-        var rows = {};
+        var rowHeaders = {};
+        var things = {};
         var xMax = 0;
         var yMax = 0;
         for (var cell in sheet) {
@@ -31,12 +32,15 @@ class Graph extends React.Component {
             if (row == 1 && col != "A") {
                 // The first row contains column headers
                 colHeaders[col] = contents;
+            } else if (row != 1 && col == "A") {
+                // first column contains row headers
+                rowHeaders[row] = contents;
             } else if (!isNaN(row) && col != "A") {
-                // every remaining row corresponds to a datum. build
-                // that datum from its cells
-                if (!rows[row]) {
-                    // if we haven't been to this row yet add it to rows
-                    rows[row] = {};
+                // every remaining columnn corresponds to a data object.
+                // build that object from its cells
+                if (!things[col]) {
+                    // if we haven't been to this col yet add it to things
+                    things[col] = {};
                     var asDate = new Date(contents);
                     if (asDate) {
                         // check if above xMax
@@ -47,25 +51,25 @@ class Graph extends React.Component {
                     }
                 }
                 // now add the contents of this cell
-                rows[row][colHeaders[col]] = contents;
+                things[col][rowHeaders[row]] = contents;
                 // check if greater than xMax
                 if (contents > yMax) {
                     yMax = contents;
                 }
             }
         }
-        var rowArray = [];
-        for (var row in rows) {
-            rowArray.push(rows[row]);
+
+        var thingArray = [];
+        for (var thing in things) {
+            thingArray.push(things[thing]);
         }
         var headers = [];
-        for (var header in colHeaders) {
-            headers.push(colHeaders[header]);
+        for (var header in rowHeaders) {
+            headers.push(rowHeaders[header]);
         }
         var stack = d3.stack()
             .keys(headers);
-        var data = stack(rowArray);
-        console.log(data);
+        var data = stack(thingArray);
 
         var x = d3.scaleTime()
             .domain([0, new Date(xMax)])
@@ -85,7 +89,6 @@ class Graph extends React.Component {
             var series = data[index];
             areas.push(area(series));
         }
-
         return areas;
     }
 
@@ -105,7 +108,7 @@ class Graph extends React.Component {
                     <svg id={idPrefix + i} width={this.props.width + "px"} height={this.props.height + "px"}>
                         <g>
                             {pathDataStrings.map((pds, idx) => {
-                                return <path key={idx} className="sheet-path" d={pds} fill={rainbow(3, idx)}></path>
+                                return <path key={idx} className="sheet-path" d={pds} fill={rainbow(pathDataStrings.length, idx)}></path>
                             })}
                         </g>
                     </svg>
