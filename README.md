@@ -1,4 +1,4 @@
-# tracking
+# tracking-graphs
 ## By Deanna Heer
 
 This is a small webapp that allows the user to input a spreadsheet file and then graphs that data. The user has many options for customizing the graphs.
@@ -35,6 +35,7 @@ General Resources and Tutorials and Articles that Helped (Note that I've left ou
 - https://www.jonathan-petitcolas.com/2015/05/15/howto-setup-webpack-on-es6-react-application-with-sass.html
 - http://eyalarubas.com/getting-started-with-d3js.html
 - https://bl.ocks.org/mbostock/4060954
+- http://www.websitedimensions.com/
 
 StackOverflow:
 - http://stackoverflow.com/questions/30773756/is-it-okay-to-use-babel-node-in-production?lq=1
@@ -42,3 +43,4 @@ StackOverflow:
 - http://stackoverflow.com/questions/5813344/how-to-customize-input-type-file
 - http://stackoverflow.com/questions/8560694/html-5-file-upload-event
 - http://stackoverflow.com/questions/14810506/map-function-for-objects-instead-of-arrays
+- http://stackoverflow.com/questions/39285694/react-redux-get-width-of-components-parent-div

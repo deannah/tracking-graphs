@@ -29,6 +29,7 @@ class Graph extends React.Component {
             var row = Number(cell.slice(1));
             var value = sheet[cell];
             var contents = value.v;
+            //console.log(`${row}, ${col}: ${contents}`);
             if (row == 1 && col != "A") {
                 // The first row contains column headers
                 colHeaders[col] = contents;
@@ -97,24 +98,16 @@ class Graph extends React.Component {
      * @returns {JSX}
      */
     render() {
-        var sheets = this.props.sheets;
-        var idPrefix = "canvas-";
-        // http://stackoverflow.com/questions/14810506/map-function-for-objects-instead-of-arrays
-        return (<div className="workbook">
-            {Object.keys(sheets).map((sheetName, i) => {
-                var pathDataStrings = this.pathDataFromSheet(sheets[sheetName]);
-                return (<div key={sheetName} className="sheet">
-                    <h3>{sheetName}</h3>
-                    <svg id={idPrefix + i} width={this.props.width + "px"} height={this.props.height + "px"}>
-                        <g>
-                            {pathDataStrings.map((pds, idx) => {
-                                return <path key={idx} className="sheet-path" d={pds} fill={rainbow(pathDataStrings.length, idx)}></path>
-                            })}
-                        </g>
-                    </svg>
-                </div>);
-            })}
-        </div>);
+        var pathDataStrings = this.pathDataFromSheet(this.props.sheet);
+        return (
+                <svg width={this.props.width + "px"} height={this.props.height + "px"}>
+                    <g>
+                        {pathDataStrings.map((pds, idx) => {
+                            return <path key={idx} className="sheet-path" d={pds} fill={rainbow(pathDataStrings.length, idx)}></path>
+                        })}
+                    </g>
+                </svg>
+        );
     }
 }
 
