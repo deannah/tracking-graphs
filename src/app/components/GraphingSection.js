@@ -17,6 +17,7 @@ class GraphingSection extends React.Component {
         this.resizeGraphs = this.resizeGraphs.bind(this);
     }
 
+    // given the screen width, determine the number of columns there should be
     getNumColumns(width) {
         if (width < 768) {
             return 1;
@@ -29,20 +30,21 @@ class GraphingSection extends React.Component {
         }
     }
 
+    // when the window resizes, we need to resize all of the graphs, so we
+    // update state
     resizeGraphs() {
-        var width = this.refs.section.parentNode.clientWidth;
-        var columns = this.getNumColumns(width);
         this.setState({
-            width: width,
+            width: this.refs.section.parentNode.clientWidth,
             height: this.refs.section.parentNode.clientHeight,
-            columns: columns
         });
     }
 
+    // set up resize listener
     componentDidMount() {
         window.addEventListener("resize", this.resizeGraphs);
     }
 
+    // remove resize listener
     componentWillUnmount() {
         window.removeEventListener("resize", this.resizeGraphs);
     }
@@ -54,7 +56,8 @@ class GraphingSection extends React.Component {
     render() {
         var uploadID = "mainFileUpload";
         /**
-         * This function is called once the user has selected a file.
+         * This function is called once the user has selected a file. It reads
+         * the file and sets its contents as state.sheets
          */
         var uploadOnChange = (e) => {
             // http://stackoverflow.com/questions/8560694/html-5-file-upload-event
@@ -65,13 +68,10 @@ class GraphingSection extends React.Component {
                 reader.onload = (e) => {
                     var data = e.target.result;
                     var workbook = XLSX.read(data, {type: "binary"});
-                    var width = this.refs.section.parentNode.clientWidth;
-                    var columns = this.getNumColumns(width);
                     this.setState({
                         sheets: workbook.Sheets,
-                        width: width,
-                        height: this.refs.section.parentNode.clientHeight,
-                        columns: columns
+                        width: this.refs.section.parentNode.clientWidth,
+                        height: this.refs.section.parentNode.clientHeight
                     });
                 };
                 reader.readAsBinaryString(file);
@@ -79,7 +79,7 @@ class GraphingSection extends React.Component {
         };
         return (<section id={this.props.id} ref="section">
             <FileUpload id={uploadID} onChange={uploadOnChange} />
-            <GraphHolder sheets={this.state.sheets} width={this.state.width} height={this.state.height} columns={this.state.columns} />
+            <GraphHolder sheets={this.state.sheets} width={this.state.width} height={this.state.height} columns={this.getNumColumns(this.state.width)} />
         </section>);
     }
 }

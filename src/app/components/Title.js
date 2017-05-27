@@ -18,7 +18,7 @@ class Title extends React.Component {
      */
     render() {
         return (
-            <span className={"title " + this.props.name + "-title"}>
+            <span className={`title ${this.props.name}-title`}>
                 <h1>{this.props.name}</h1>
             </span>
         );

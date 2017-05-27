@@ -18,7 +18,7 @@ class TrackingApp {
       * calendar rendered to string
       */
       render(element) {
-          var root = <TrackingRoot state={this.state} />;
+          var root = <TrackingRoot />;
 
           // render to DOM
           if(element) {

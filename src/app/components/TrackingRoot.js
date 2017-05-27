@@ -8,7 +8,7 @@ import GraphingSection from "./GraphingSection";
  */
 class TrackingRoot extends React.Component {
     /**
-     * Generates the HTML for enetire Tracking page
+     * Generates the HTML for entire Tracking page
      * @returns {JSX}
      */
     render() {

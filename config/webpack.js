@@ -1,3 +1,4 @@
+// Set up the build
 var path = require("path");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -14,11 +15,13 @@ module.exports = {
   module: {
     loaders: [
       {
+        // package .js files into bundle.js
         test: /src\/.+.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"
       },
       {
+        // compile scss into css and combine in styles.css
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           fallback: "style-loader",

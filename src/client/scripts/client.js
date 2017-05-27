@@ -1,3 +1,4 @@
+// Responsible for actually rendering the React app
 import TrackingApp from "../../app";
 
 var trackingElement = document.getElementById("tracking-app");

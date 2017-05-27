@@ -60,10 +60,13 @@ class Graph extends React.Component {
             }
         }
 
+        // things holds the contents. Each element in thingArray represents a
+        // column of data
         var thingArray = [];
         for (var thing in things) {
             thingArray.push(things[thing]);
         }
+        // headers are the contents of the first column
         var headers = [];
         for (var header in rowHeaders) {
             headers.push(rowHeaders[header]);
